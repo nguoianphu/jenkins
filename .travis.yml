@@ -4,7 +4,7 @@ sudo: false
 jdk:
   - openjdk8
   - oraclejdk8
-install:
-  - mvn clean package -pl war -am -DskipTests -Dfindbugs.skip
 script:
+  - export MAVEN_OPTS="-XX:MaxPermSize=128m"
+  - mvn clean package -pl war -am -DskipTests -Dfindbugs.skip
   - ls -la war/target/
