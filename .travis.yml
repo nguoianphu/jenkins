@@ -1,8 +1,5 @@
 language: java
-
 sudo: false
-
 jdk:
-
+  - openjdk8
   - oraclejdk8
-
