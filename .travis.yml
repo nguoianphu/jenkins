@@ -1,6 +1,10 @@
-dist: xenial
+dist: trusty
 language: java
 sudo: false
 jdk:
   - openjdk8
   - oraclejdk8
+install:
+  - mvn clean package -pl war -am -DskipTests -Dfindbugs.skip
+script:
+  - ls -la war/target/
