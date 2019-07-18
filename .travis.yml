@@ -8,11 +8,12 @@ jdk:
   - oraclejdk8
 before_install:
   - sudo apt-get purge -y maven
-  - if ! [ -e apache-maven-${MVN_VERSION}-bin.tar.gz ]; then (curl -OL https://www-us.apache.org/dist/maven/maven-3/${MVN_VERSION}/binaries/apache-maven-${MVN_VERSION}-bin.tar.gz); fi
+  - wget https://www-us.apache.org/dist/maven/maven-3/${MVN_VERSION}/binaries/apache-maven-${MVN_VERSION}-bin.tar.gz
   - sudo tar -zxf apache-maven-${MVN_VERSION}-bin.tar.gz -C /usr/local/
   - sudo ln -s /usr/local/apache-maven-${MVN_VERSION}/bin/mvn /usr/bin/mvn
   - mvn -version
 script:  
   - export MAVEN_OPTS="-XX:MaxPermSize=128m"
+  - export PATH=/usr/local/apache-maven-${MVN_VERSION}/bin:$PATH
   - mvn clean package -pl war -am -DskipTests -Dfindbugs.skip
   - ls -la war/target/
