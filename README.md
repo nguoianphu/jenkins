@@ -1,5 +1,9 @@
 [![][ButlerImage]][website] 
 
+
+
+Status on Travis CI [![Build Status](https://travis-ci.org/nguoianphu/jenkins.svg?branch=master)](https://travis-ci.org/nguoianphu/jenkins) LOL
+
 # About
 In a nutshell, Jenkins is the leading open-source automation server. 
 Built with Java, it provides over 1000 plugins to support automating virtually anything, 
